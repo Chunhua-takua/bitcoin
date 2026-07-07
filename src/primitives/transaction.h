@@ -57,11 +57,12 @@ public:
 /** An input of a transaction.  It contains the location of the previous
  * transaction's output that it claims and a signature that matches the
  * output's public key.
+ * 交易输入
  */
 class CTxIn
 {
 public:
-    COutPoint prevout;
+    COutPoint prevout; // 引用以前的交易输出，花哪个 utxo
     CScript scriptSig;
     uint32_t nSequence;
     CScriptWitness scriptWitness; //!< Only serialized through CTransaction
@@ -277,7 +278,7 @@ inline CAmount CalculateOutputValue(const TxType& tx)
 /** The basic transaction that is broadcasted on the network and contained in
  * blocks.  A transaction can contain multiple inputs and outputs.
  */
-class CTransaction
+class CTransaction   // 交易
 {
 public:
     // Default transaction version.
